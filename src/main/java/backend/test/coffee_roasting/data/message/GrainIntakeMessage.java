@@ -1,15 +1,13 @@
 package backend.test.coffee_roasting.data.message;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class GrainMessage {
+@ToString
+public class GrainIntakeMessage {
     private String countryOfOrigin;
     private String grainType;
     private double robustaPercentage;
