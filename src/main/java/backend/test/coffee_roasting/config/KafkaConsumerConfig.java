@@ -1,6 +1,6 @@
 package backend.test.coffee_roasting.config;
 
-import backend.test.coffee_roasting.data.message.GrainMessage;
+import backend.test.coffee_roasting.data.message.GrainIntakeMessage;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +21,7 @@ public class KafkaConsumerConfig {
     private String bootstrapServers;
 
     @Bean
-    public ConsumerFactory<String, GrainMessage> grainConsumerFactory() {
+    public ConsumerFactory<String, GrainIntakeMessage> grainConsumerFactory() {
         return new DefaultKafkaConsumerFactory<>(
                 Map.of(
                         ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers,
@@ -30,13 +30,13 @@ public class KafkaConsumerConfig {
                         ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class
                 ),
                 new StringDeserializer(),
-                new JsonDeserializer<>(GrainMessage.class)
+                new JsonDeserializer<>(GrainIntakeMessage.class)
         );
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, GrainMessage> grainListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, GrainMessage> factory =
+    public ConcurrentKafkaListenerContainerFactory<String, GrainIntakeMessage> grainListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, GrainIntakeMessage> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(grainConsumerFactory());
         return factory;
