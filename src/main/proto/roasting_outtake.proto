@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "backend.test.coffee_roasting.grpc";
+option java_outer_classname = "RoastingOuttakeProto";
+
+service RoastingService {
+  rpc AddRoastingOuttake(RoastingOuttakeRequest) returns (RoastingOuttakeResponse);
+}
+
+message RoastingOuttakeRequest {
+  string grain_type = 1;
+  string origin_country = 2;
+  double input_weight_grams = 3;
+  double output_weight_grams = 4;
+  string brigade_id = 5;
+}
+
+message RoastingOuttakeResponse {
+  string message = 1;
+}
