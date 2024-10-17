@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @ToString
 public class GrainIntakeMessage {
-    private String countryOfOrigin;
+    private String originCountry;
     private String grainType;
     private double robustaPercentage;
     private double arabicaPercentage;
