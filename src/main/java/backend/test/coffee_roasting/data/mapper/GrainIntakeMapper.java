@@ -12,7 +12,7 @@ public class GrainIntakeMapper {
         GrainIntake grainIntake = new GrainIntake();
 
         double weightGrams = grainIntakeMessage.getNumberOfBags() * BAG_WEIGHT_KILOGRAMS * 1000;
-        grainIntake.setOriginCountry(grainIntakeMessage.getCountryOfOrigin());
+        grainIntake.setOriginCountry(grainIntakeMessage.getOriginCountry());
         grainIntake.setGrainType(grainIntakeMessage.getGrainType());
         grainIntake.setRobustaPercentage(grainIntakeMessage.getRobustaPercentage());
         grainIntake.setArabicaPercentage(grainIntakeMessage.getArabicaPercentage());
